@@ -1,0 +1,66 @@
+name: Veille
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"   # toutes les 3 heures, à la minute 17 (évite le pic de début d'heure)
+  workflow_dispatch:          # lancement manuel depuis l'onglet Actions
+  push:
+    branches: [main]
+    paths: ["people.json", "sources.json", "template.html", "collect.py", ".github/workflows/veille.yml"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: veille
+  cancel-in-progress: false
+
+jobs:
+  collect-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Tests du collecteur
+        run: python3 tests/test_collect.py
+
+      - name: Collecte
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 collect.py
+
+      - name: Génération de la page
+        run: python3 build.py
+
+      - name: Enregistrement des données
+        run: |
+          git config user.name "veille-bot"
+          git config user.email "veille-bot@users.noreply.github.com"
+          git add data index.html
+          git diff --cached --quiet || git commit -m "veille: relevé $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git push
+
+      - name: Préparation du site
+        run: |
+          mkdir _site
+          cp index.html people.json _site/
+          cp -r data _site/data
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,280 @@
+{
+  "meta": {
+    "version": 1,
+    "updated": "2026-10-13",
+    "note": "Liens publics uniquement (chaîne YouTube, profil GitHub). Chaque lien a été ouvert et vérifié. Le champ skills est réservé aux skills que chaque créateur publie sur sa propre plateforme : { name, url, embed_url (optionnel), version, sha256, licence }. Le glossaire renvoie ou embarque, il n'héberge pas.",
+    "topics": ["Agents & skills", "Cours & recherche", "Généraliste", "Open source", "Listes & outils"]
+  },
+  "people": [
+    {
+      "id": "machinelearnia",
+      "name": "MachineLearnia",
+      "person": "Guillaume Saint-Cirgue",
+      "lang": "fr",
+      "topics": ["Cours & recherche"],
+      "links": { "youtube": "https://www.youtube.com/@MachineLearnia" },
+      "skills": []
+    },
+    {
+      "id": "yassine-sdiri",
+      "name": "Yassine Sdiri",
+      "lang": "fr",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@yassinesdiri" },
+      "skills": []
+    },
+    {
+      "id": "monsieur-ia",
+      "name": "Monsieur IA",
+      "person": "Mickael Ducelier",
+      "lang": "fr",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@Monsieur_IA" },
+      "skills": []
+    },
+    {
+      "id": "defend-intelligence",
+      "name": "Defend Intelligence",
+      "person": "Anis Ayari",
+      "lang": "fr",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@DefendIntelligence" },
+      "skills": []
+    },
+    {
+      "id": "micode",
+      "name": "Micode",
+      "lang": "fr",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@Micode" },
+      "skills": []
+    },
+    {
+      "id": "underscore",
+      "name": "Underscore_",
+      "lang": "fr",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@Underscore_" },
+      "skills": []
+    },
+    {
+      "id": "lex-fridman",
+      "name": "Lex Fridman",
+      "lang": "en",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@lexfridman" },
+      "skills": []
+    },
+    {
+      "id": "3blue1brown",
+      "name": "3Blue1Brown",
+      "lang": "en",
+      "topics": ["Cours & recherche"],
+      "links": { "youtube": "https://www.youtube.com/@3blue1brown" },
+      "skills": []
+    },
+    {
+      "id": "fireship",
+      "name": "Fireship",
+      "lang": "en",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@Fireship" },
+      "skills": []
+    },
+    {
+      "id": "ai-explained",
+      "name": "AI Explained",
+      "lang": "en",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@AIExplained-official" },
+      "skills": []
+    },
+    {
+      "id": "matthew-berman",
+      "name": "Matthew Berman",
+      "lang": "en",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@matthew_berman" },
+      "skills": []
+    },
+    {
+      "id": "matt-wolfe",
+      "name": "Matt Wolfe",
+      "lang": "en",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@mreflow" },
+      "skills": []
+    },
+    {
+      "id": "all-about-ai",
+      "name": "AllAboutAI",
+      "lang": "en",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@AllAboutAI" },
+      "skills": []
+    },
+    {
+      "id": "networkchuck",
+      "name": "NetworkChuck",
+      "lang": "en",
+      "topics": ["Généraliste"],
+      "links": { "youtube": "https://www.youtube.com/@NetworkChuck" },
+      "skills": []
+    },
+    {
+      "id": "andrej-karpathy",
+      "name": "Andrej Karpathy",
+      "lang": "en",
+      "topics": ["Cours & recherche", "Open source"],
+      "links": {
+        "youtube": "https://www.youtube.com/@AndrejKarpathy",
+        "github": "https://github.com/karpathy"
+      },
+      "skills": []
+    },
+    {
+      "id": "yannic-kilcher",
+      "name": "Yannic Kilcher",
+      "lang": "en",
+      "topics": ["Cours & recherche"],
+      "links": { "youtube": "https://www.youtube.com/@YannicKilcher" },
+      "skills": []
+    },
+    {
+      "id": "two-minute-papers",
+      "name": "Two Minute Papers",
+      "lang": "en",
+      "topics": ["Cours & recherche"],
+      "links": { "youtube": "https://www.youtube.com/@TwoMinutePapers" },
+      "skills": []
+    },
+    {
+      "id": "krish-naik",
+      "name": "Krish Naik",
+      "lang": "en",
+      "topics": ["Cours & recherche"],
+      "links": { "youtube": "https://www.youtube.com/@krishnaik06" },
+      "skills": []
+    },
+    {
+      "id": "indydevdan",
+      "name": "IndyDevDan",
+      "lang": "en",
+      "topics": ["Agents & skills"],
+      "links": {
+        "youtube": "https://www.youtube.com/@indydevdan",
+        "github": "https://github.com/disler"
+      },
+      "skills": []
+    },
+    {
+      "id": "cole-medin",
+      "name": "Cole Medin",
+      "lang": "en",
+      "topics": ["Agents & skills"],
+      "links": {
+        "youtube": "https://www.youtube.com/@ColeMedin",
+        "github": "https://github.com/coleam00"
+      },
+      "skills": []
+    },
+    {
+      "id": "nate-herk",
+      "name": "Nate Herk",
+      "lang": "en",
+      "topics": ["Agents & skills"],
+      "links": { "youtube": "https://www.youtube.com/@nateherk" },
+      "skills": []
+    },
+    {
+      "id": "nick-saraev",
+      "name": "Nick Saraev",
+      "lang": "en",
+      "topics": ["Agents & skills"],
+      "links": { "youtube": "https://www.youtube.com/@nicksaraev" },
+      "skills": []
+    },
+    {
+      "id": "liam-ottley",
+      "name": "Liam Ottley",
+      "lang": "en",
+      "topics": ["Agents & skills"],
+      "links": { "youtube": "https://www.youtube.com/@LiamOttley" },
+      "skills": []
+    },
+    {
+      "id": "k-dense",
+      "name": "K-Dense",
+      "lang": "en",
+      "topics": ["Agents & skills", "Open source"],
+      "links": {
+        "youtube": "https://www.youtube.com/@K-Dense-Inc",
+        "github": "https://github.com/K-Dense-AI"
+      },
+      "repos": ["K-Dense-AI/scientific-agent-skills"],
+      "skills": []
+    },
+    {
+      "id": "simon-willison",
+      "name": "Simon Willison",
+      "lang": "en",
+      "topics": ["Open source", "Généraliste"],
+      "links": { "github": "https://github.com/simonw" },
+      "skills": []
+    },
+    {
+      "id": "jesse-vincent",
+      "name": "Jesse Vincent",
+      "lang": "en",
+      "topics": ["Agents & skills", "Open source"],
+      "links": { "github": "https://github.com/obra" },
+      "repos": ["obra/superpowers"],
+      "skills": []
+    },
+    {
+      "id": "travisvn",
+      "name": "travisvn",
+      "lang": "en",
+      "topics": ["Listes & outils", "Agents & skills"],
+      "links": { "github": "https://github.com/travisvn" },
+      "repos": ["travisvn/awesome-claude-skills"],
+      "skills": []
+    },
+    {
+      "id": "hesreallyhim",
+      "name": "hesreallyhim",
+      "lang": "en",
+      "topics": ["Listes & outils"],
+      "links": { "github": "https://github.com/hesreallyhim" },
+      "repos": ["hesreallyhim/awesome-claude-code"],
+      "skills": []
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "lang": "en",
+      "topics": ["Agents & skills", "Open source"],
+      "links": { "github": "https://github.com/anthropics" },
+      "repos": ["anthropics/skills"],
+      "skills": []
+    },
+    {
+      "id": "hugging-face",
+      "name": "Hugging Face",
+      "lang": "en",
+      "topics": ["Open source", "Agents & skills"],
+      "links": { "github": "https://github.com/huggingface" },
+      "repos": ["huggingface/skills"],
+      "skills": []
+    },
+    {
+      "id": "composio",
+      "name": "Composio",
+      "lang": "en",
+      "topics": ["Listes & outils"],
+      "links": { "github": "https://github.com/ComposioHQ" },
+      "repos": ["ComposioHQ/awesome-claude-skills"],
+      "skills": []
+    }
+  ]
+}

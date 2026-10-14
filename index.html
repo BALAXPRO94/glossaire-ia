@@ -1,0 +1,629 @@
+<title>Glossaire IA</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+<style>
+  /* Layout: one site, two views (glossaire, veille). Glossaire is an alphabetical index with fixed YouTube / GitHub slots; veille is a dated timeline with a side column for new creators and source health. */
+  :root {
+    --bg: #eef1f5;
+    --surface: #f9fafc;
+    --fg: #121722;
+    --muted: #586273;
+    --line: #d2d8e1;
+    --accent: #1b4fd8;
+    --accent-soft: #dfe7fb;
+    --yt: #b3261e;
+    --gh: #2b3445;
+    --ok: #177245;
+    --warn: #8a5a00;
+    --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f141c;
+      --surface: #161d28;
+      --fg: #e8ecf2;
+      --muted: #94a0b2;
+      --line: #28323f;
+      --accent: #7ea6ff;
+      --accent-soft: #1d2a47;
+      --yt: #ff7a70;
+      --gh: #b9c3d3;
+      --ok: #62d394;
+      --warn: #e5b04a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f141c;
+    --surface: #161d28;
+    --fg: #e8ecf2;
+    --muted: #94a0b2;
+    --line: #28323f;
+    --accent: #7ea6ff;
+    --accent-soft: #1d2a47;
+    --yt: #ff7a70;
+    --gh: #b9c3d3;
+    --ok: #62d394;
+    --warn: #e5b04a;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    padding-inline: 1rem;
+    padding-block: 1.25rem 3rem;
+  }
+  .wrap { max-width: 60rem; margin-inline: auto; }
+  .wrap.wide { max-width: 72rem; }
+
+  .tablist { display: flex; gap: 1.5rem; border-bottom: 1px solid var(--line); margin-bottom: 1.75rem; }
+  .tab { font: inherit; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); background: none; border: 0; border-bottom: 2px solid transparent; padding: 0.5rem 0 0.625rem; margin-bottom: -1px; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .tab:hover { color: var(--fg); }
+  .tab[aria-selected="true"] { color: var(--fg); border-bottom-color: var(--accent); }
+  .tabbadge { font-size: 0.6875rem; letter-spacing: 0; background: var(--accent); color: var(--bg); border-radius: 999px; padding: 0 0.4375rem; font-variant-numeric: tabular-nums; }
+
+  header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; padding-bottom: 1.5rem; }
+  .intro { min-width: 0; flex: 1 1 24rem; }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 7vw, 3.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.75rem;
+    text-wrap: balance;
+  }
+  .lede { margin: 0; max-width: 40rem; color: var(--muted); font-size: 1rem; text-wrap: pretty; }
+  .stats { display: flex; gap: 1.5rem; margin: 0; font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .stats div { display: flex; flex-direction: column; gap: 0.125rem; }
+  .stats dt { font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .stats dd { margin: 0; font-size: 1.5rem; line-height: 1; color: var(--fg); }
+
+  .toolbar { background: var(--bg); border-block: 1px solid var(--line); padding-block: 0.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  @media (min-width: 720px) {
+    .toolbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; }
+  }
+  .search { width: 100%; font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.625rem 0.75rem; }
+  .search::placeholder { color: var(--muted); }
+  .search:focus-visible, .chip:focus-visible, .tab:focus-visible, .lnk:focus-visible, .reset:focus-visible, .repo:focus-visible, .ptitle:focus-visible, .copy:focus-visible, .more:focus-visible, .panel summary:focus-visible, .cand a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; }
+  .group-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem; }
+  .group-label { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-right: 0.25rem; }
+  .chip { font: inherit; font-size: 0.8125rem; color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.75rem; cursor: pointer; }
+  .chip:hover { border-color: var(--accent); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .status { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.25rem 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+  .status .stale { color: var(--warn); }
+  .reset { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+
+  main { padding-top: 1.5rem; display: flex; flex-direction: column; gap: 2rem; }
+  .letter-group { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); gap: 0 0.75rem; }
+  @media (min-width: 720px) { .letter-group { grid-template-columns: 3.5rem minmax(0, 1fr); gap: 0 1rem; } }
+  .letter { font-family: var(--font-display); font-weight: 600; font-size: 2rem; line-height: 1; color: var(--accent); padding-top: 0.75rem; }
+  .entries { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--fg); min-width: 0; }
+  .entry { display: grid; grid-template-columns: 1fr; gap: 0.625rem; align-items: center; padding-block: 0.875rem; border-bottom: 1px solid var(--line); }
+  @media (min-width: 720px) { .entry { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.9fr); gap: 1rem; } }
+  .who { min-width: 0; }
+  .name { font-family: var(--font-display); font-weight: 600; font-size: 1.3125rem; line-height: 1.2; margin: 0; overflow-wrap: anywhere; }
+  .meta { margin: 0.125rem 0 0; font-size: 0.8125rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 0 0.5rem; }
+  .meta .lang { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; align-self: center; border: 1px solid var(--line); border-radius: 4px; padding: 0 0.3125rem; }
+  .repo { color: var(--muted); font-family: var(--font-mono); font-size: 0.75rem; align-self: center; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); overflow-wrap: anywhere; }
+  .repo:hover { color: var(--accent); text-decoration-color: var(--accent); }
+  .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: 0.5rem; min-width: 0; }
+  @media (min-width: 720px) { .links { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 719px) { .slot { display: none; } }
+  .lnk { display: flex; flex-direction: column; gap: 0.125rem; min-width: 0; text-decoration: none; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.5rem 0.75rem; }
+  .lnk:hover { border-color: var(--accent); }
+  .plat { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .yt .plat { color: var(--yt); }
+  .gh .plat { color: var(--gh); }
+  .handle { font-family: var(--font-mono); font-size: 0.8125rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .skills { font-family: var(--font-mono); font-size: 0.6875rem; background: var(--accent-soft); color: var(--accent); border-radius: 4px; padding: 0 0.375rem; align-self: center; }
+  .empty { border-top: 2px solid var(--fg); padding-block: 2rem; color: var(--muted); }
+
+  /* Veille */
+  .banner { border: 1px solid var(--line); background: var(--accent-soft); border-radius: 6px; padding: 0.625rem 0.75rem; margin-bottom: 1.25rem; font-size: 0.875rem; }
+  .veille-grid { display: grid; gap: 2rem; grid-template-columns: minmax(0, 1fr); padding-top: 1.25rem; }
+  @media (min-width: 960px) { .veille-grid { grid-template-columns: minmax(0, 1fr) 19rem; align-items: start; } }
+  .day { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0; padding-block: 1.5rem 0.5rem; border-bottom: 2px solid var(--fg); font-weight: 500; }
+  .day-group:first-child .day { padding-top: 0; }
+  .posts { list-style: none; margin: 0; padding: 0; }
+  .post { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 0.75rem; padding-block: 0.75rem; border-bottom: 1px solid var(--line); }
+  .when { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 0.1875rem; }
+  .what { min-width: 0; }
+  .ptitle { font-family: var(--font-display); font-weight: 600; font-size: 1.125rem; line-height: 1.3; color: var(--fg); text-decoration: none; overflow-wrap: anywhere; }
+  a.ptitle:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .pmeta { margin: 0.125rem 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0 0.625rem; font-size: 0.8125rem; color: var(--muted); }
+  .pkind { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .k-youtube { color: var(--yt); }
+  .k-github { color: var(--gh); }
+  .k-news, .k-papers { color: var(--accent); }
+  .newpill { font-family: var(--font-mono); font-size: 0.6875rem; background: var(--accent-soft); color: var(--accent); border-radius: 4px; padding: 0 0.375rem; }
+  .psum { margin: 0.25rem 0 0; font-size: 0.8125rem; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .more { margin-top: 1rem; font: inherit; font-size: 0.8125rem; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.5rem 1rem; cursor: pointer; }
+  .more:hover { border-color: var(--accent); }
+  .side { display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+  .panel { border-top: 2px solid var(--fg); }
+  .panel summary { cursor: pointer; padding-block: 0.625rem; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; display: flex; justify-content: space-between; gap: 1rem; }
+  .panel summary .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .panel ul { list-style: none; margin: 0; padding: 0; }
+  .cand { padding-block: 0.75rem; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 0.125rem; }
+  .cand-head { display: flex; justify-content: space-between; gap: 0.75rem; align-items: baseline; }
+  .cand-login { font-family: var(--font-display); font-weight: 600; font-size: 1.0625rem; color: var(--fg); overflow-wrap: anywhere; }
+  .cand-stars { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cand-repo { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); overflow-wrap: anywhere; }
+  .cand-repo a { color: inherit; }
+  .cand-desc { margin: 0.125rem 0 0; font-size: 0.8125rem; color: var(--muted); }
+  .copy { align-self: flex-start; margin-top: 0.375rem; font: inherit; font-size: 0.75rem; color: var(--accent); background: none; border: 1px solid var(--line); border-radius: 6px; padding: 0.25rem 0.625rem; cursor: pointer; }
+  .copy:hover { border-color: var(--accent); }
+  .src { display: grid; grid-template-columns: 0.625rem minmax(0, 1fr) auto; gap: 0.125rem 0.625rem; align-items: baseline; padding-block: 0.375rem; border-top: 1px solid var(--line); font-size: 0.8125rem; }
+  .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--ok); align-self: center; }
+  .dot.err { background: var(--yt); }
+  .dot.pending { background: var(--warn); }
+  .src-name { overflow-wrap: anywhere; }
+  .src-n { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .src-state { grid-column: 2 / -1; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--muted); overflow-wrap: anywhere; }
+  .src-state.err { color: var(--yt); }
+  .src-state.pending { color: var(--warn); }
+
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.8125rem; display: flex; flex-direction: column; gap: 0.25rem; max-width: 40rem; }
+  footer p { margin: 0; }
+  code { font-family: var(--font-mono); font-size: 0.8125em; }
+</style>
+
+<div class="wrap" id="wrap">
+  <nav class="tablist" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="tab-glossaire" aria-controls="view-glossaire" aria-selected="true" type="button">Glossaire</button>
+    <button class="tab" role="tab" id="tab-veille" aria-controls="view-veille" aria-selected="false" type="button">Veille<span class="tabbadge" id="tab-new" hidden></span></button>
+  </nav>
+
+  <section id="view-glossaire" role="tabpanel" aria-labelledby="tab-glossaire">
+    <header>
+      <div class="intro">
+        <h1>Glossaire IA</h1>
+        <p class="lede">Les chaînes YouTube et les profils GitHub de celles et ceux qui enseignent, construisent et utilisent l'IA en public. Un seul endroit, des liens directs vers chaque plateforme.</p>
+      </div>
+      <dl class="stats" id="stats"></dl>
+    </header>
+
+    <section class="toolbar" aria-label="Recherche et filtres">
+      <input class="search" id="q" type="search" placeholder="Rechercher un nom, un thème, un dépôt" aria-label="Rechercher" autocomplete="off">
+      <div class="filters" id="filters"></div>
+      <div class="status">
+        <span id="count" aria-live="polite"></span>
+        <button class="reset" id="reset" type="button" hidden>Effacer les filtres</button>
+      </div>
+    </section>
+
+    <main id="list"></main>
+  </section>
+
+  <section id="view-veille" role="tabpanel" aria-labelledby="tab-veille" hidden>
+    <header>
+      <div class="intro">
+        <h1>Veille</h1>
+        <p class="lede">Les nouveautés des personnes et des sources suivies, relevées automatiquement toutes les 3 heures : vidéos, activité GitHub, news, articles de recherche.</p>
+      </div>
+      <dl class="stats" id="v-stats"></dl>
+    </header>
+
+    <div class="banner" id="v-banner" hidden></div>
+
+    <section class="toolbar" aria-label="Recherche et filtres de la veille">
+      <input class="search" id="vq" type="search" placeholder="Rechercher dans la veille" aria-label="Rechercher dans la veille" autocomplete="off">
+      <div class="filters" id="v-filters"></div>
+      <div class="status">
+        <span id="v-count" aria-live="polite"></span>
+        <span id="v-fresh"></span>
+      </div>
+    </section>
+
+    <div class="veille-grid">
+      <div>
+        <div id="v-list"></div>
+        <button class="more" id="v-more" type="button" hidden>Afficher plus</button>
+      </div>
+      <aside class="side" aria-label="Créateurs à découvrir et état des sources">
+        <details class="panel" id="v-cands-panel" open>
+          <summary>Créateurs à découvrir <span class="n" id="v-cands-n"></span></summary>
+          <ul id="v-cands"></ul>
+        </details>
+        <details class="panel" id="v-sources-panel">
+          <summary>État des sources <span class="n" id="v-sources-n"></span></summary>
+          <ul id="v-sources"></ul>
+        </details>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <p>Seuls des liens publics sont listés. Pour retirer ou corriger une entrée, écrire à l'éditeur du site.</p>
+    <p id="verified"></p>
+    <p>La veille ne garde que le titre, le lien, la date, l'auteur et un court extrait de chaque élément. Données des personnes&nbsp;: <code>people.json</code>.</p>
+    <p>Chaque entrée pourra recevoir plus tard les liens de ses skills, qui restent hébergés chez leur créateur.</p>
+  </footer>
+</div>
+
+<script>
+  const DATA = {"meta":{"version":1,"updated":"2026-10-13","note":"Liens publics uniquement (chaîne YouTube, profil GitHub). Chaque lien a été ouvert et vérifié. Le champ skills est réservé aux skills que chaque créateur publie sur sa propre plateforme : { name, url, embed_url (optionnel), version, sha256, licence }. Le glossaire renvoie ou embarque, il n'héberge pas.","topics":["Agents & skills","Cours & recherche","Généraliste","Open source","Listes & outils"]},"people":[{"id":"machinelearnia","name":"MachineLearnia","person":"Guillaume Saint-Cirgue","lang":"fr","topics":["Cours & recherche"],"links":{"youtube":"https://www.youtube.com/@MachineLearnia"},"skills":[]},{"id":"yassine-sdiri","name":"Yassine Sdiri","lang":"fr","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@yassinesdiri"},"skills":[]},{"id":"monsieur-ia","name":"Monsieur IA","person":"Mickael Ducelier","lang":"fr","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@Monsieur_IA"},"skills":[]},{"id":"defend-intelligence","name":"Defend Intelligence","person":"Anis Ayari","lang":"fr","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@DefendIntelligence"},"skills":[]},{"id":"micode","name":"Micode","lang":"fr","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@Micode"},"skills":[]},{"id":"underscore","name":"Underscore_","lang":"fr","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@Underscore_"},"skills":[]},{"id":"lex-fridman","name":"Lex Fridman","lang":"en","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@lexfridman"},"skills":[]},{"id":"3blue1brown","name":"3Blue1Brown","lang":"en","topics":["Cours & recherche"],"links":{"youtube":"https://www.youtube.com/@3blue1brown"},"skills":[]},{"id":"fireship","name":"Fireship","lang":"en","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@Fireship"},"skills":[]},{"id":"ai-explained","name":"AI Explained","lang":"en","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@AIExplained-official"},"skills":[]},{"id":"matthew-berman","name":"Matthew Berman","lang":"en","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@matthew_berman"},"skills":[]},{"id":"matt-wolfe","name":"Matt Wolfe","lang":"en","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@mreflow"},"skills":[]},{"id":"all-about-ai","name":"AllAboutAI","lang":"en","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@AllAboutAI"},"skills":[]},{"id":"networkchuck","name":"NetworkChuck","lang":"en","topics":["Généraliste"],"links":{"youtube":"https://www.youtube.com/@NetworkChuck"},"skills":[]},{"id":"andrej-karpathy","name":"Andrej Karpathy","lang":"en","topics":["Cours & recherche","Open source"],"links":{"youtube":"https://www.youtube.com/@AndrejKarpathy","github":"https://github.com/karpathy"},"skills":[]},{"id":"yannic-kilcher","name":"Yannic Kilcher","lang":"en","topics":["Cours & recherche"],"links":{"youtube":"https://www.youtube.com/@YannicKilcher"},"skills":[]},{"id":"two-minute-papers","name":"Two Minute Papers","lang":"en","topics":["Cours & recherche"],"links":{"youtube":"https://www.youtube.com/@TwoMinutePapers"},"skills":[]},{"id":"krish-naik","name":"Krish Naik","lang":"en","topics":["Cours & recherche"],"links":{"youtube":"https://www.youtube.com/@krishnaik06"},"skills":[]},{"id":"indydevdan","name":"IndyDevDan","lang":"en","topics":["Agents & skills"],"links":{"youtube":"https://www.youtube.com/@indydevdan","github":"https://github.com/disler"},"skills":[]},{"id":"cole-medin","name":"Cole Medin","lang":"en","topics":["Agents & skills"],"links":{"youtube":"https://www.youtube.com/@ColeMedin","github":"https://github.com/coleam00"},"skills":[]},{"id":"nate-herk","name":"Nate Herk","lang":"en","topics":["Agents & skills"],"links":{"youtube":"https://www.youtube.com/@nateherk"},"skills":[]},{"id":"nick-saraev","name":"Nick Saraev","lang":"en","topics":["Agents & skills"],"links":{"youtube":"https://www.youtube.com/@nicksaraev"},"skills":[]},{"id":"liam-ottley","name":"Liam Ottley","lang":"en","topics":["Agents & skills"],"links":{"youtube":"https://www.youtube.com/@LiamOttley"},"skills":[]},{"id":"k-dense","name":"K-Dense","lang":"en","topics":["Agents & skills","Open source"],"links":{"youtube":"https://www.youtube.com/@K-Dense-Inc","github":"https://github.com/K-Dense-AI"},"repos":["K-Dense-AI/scientific-agent-skills"],"skills":[]},{"id":"simon-willison","name":"Simon Willison","lang":"en","topics":["Open source","Généraliste"],"links":{"github":"https://github.com/simonw"},"skills":[]},{"id":"jesse-vincent","name":"Jesse Vincent","lang":"en","topics":["Agents & skills","Open source"],"links":{"github":"https://github.com/obra"},"repos":["obra/superpowers"],"skills":[]},{"id":"travisvn","name":"travisvn","lang":"en","topics":["Listes & outils","Agents & skills"],"links":{"github":"https://github.com/travisvn"},"repos":["travisvn/awesome-claude-skills"],"skills":[]},{"id":"hesreallyhim","name":"hesreallyhim","lang":"en","topics":["Listes & outils"],"links":{"github":"https://github.com/hesreallyhim"},"repos":["hesreallyhim/awesome-claude-code"],"skills":[]},{"id":"anthropic","name":"Anthropic","lang":"en","topics":["Agents & skills","Open source"],"links":{"github":"https://github.com/anthropics"},"repos":["anthropics/skills"],"skills":[]},{"id":"hugging-face","name":"Hugging Face","lang":"en","topics":["Open source","Agents & skills"],"links":{"github":"https://github.com/huggingface"},"repos":["huggingface/skills"],"skills":[]},{"id":"composio","name":"Composio","lang":"en","topics":["Listes & outils"],"links":{"github":"https://github.com/ComposioHQ"},"repos":["ComposioHQ/awesome-claude-skills"],"skills":[]}]};
+
+  /* ---------- utilitaires partagés ---------- */
+  const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const handleOf = (url) => url.replace(/\/+$/, "").split("/").pop();
+  const safeHref = (u) => (typeof u === "string" && /^https?:\/\//.test(u) ? u : "");
+
+  function el(tag, props, ...kids) {
+    const node = document.createElement(tag);
+    for (const [k, v] of Object.entries(props || {})) {
+      if (k === "class") node.className = v;
+      else if (v !== false && v != null) node.setAttribute(k, v === true ? "" : v);
+    }
+    for (const kid of kids) if (kid != null) node.append(kid);
+    return node;
+  }
+  function storeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function storeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* stockage indisponible : la page marche sans */ } }
+  function statsInto(node, rows) {
+    node.replaceChildren();
+    for (const [label, n] of rows) node.append(el("div", {}, el("dt", {}, label), el("dd", {}, String(n))));
+  }
+  function filterGroups(container, groups, state, onChange) {
+    for (const g of groups) {
+      const box = el("div", { class: "group-filter", role: "group", "aria-label": g.label || "Options" });
+      if (g.label) box.append(el("span", { class: "group-label" }, g.label));
+      for (const [value, text] of g.options) {
+        const b = el("button", { class: "chip", type: "button", "data-key": g.key, "data-value": value, "aria-pressed": "false" }, text);
+        b.addEventListener("click", () => { state[g.key] = g.toggle ? !state[g.key] : value; onChange(); });
+        box.append(b);
+      }
+      container.append(box);
+    }
+  }
+  function syncChips(container, state, groups) {
+    container.querySelectorAll(".chip").forEach((c) => {
+      const g = groups.find((x) => x.key === c.dataset.key);
+      c.setAttribute("aria-pressed", String(g.toggle ? state[g.key] === true : state[g.key] === c.dataset.value));
+    });
+  }
+
+  /* ---------- onglets ---------- */
+  const wrapEl = document.getElementById("wrap");
+  function showView(name) {
+    for (const v of ["glossaire", "veille"]) {
+      document.getElementById("view-" + v).hidden = v !== name;
+      document.getElementById("tab-" + v).setAttribute("aria-selected", String(v === name));
+    }
+    wrapEl.classList.toggle("wide", name === "veille");
+  }
+  for (const v of ["glossaire", "veille"]) {
+    document.getElementById("tab-" + v).addEventListener("click", () => { location.hash = v; showView(v); });
+  }
+  addEventListener("hashchange", () => showView(location.hash === "#veille" ? "veille" : "glossaire"));
+
+  /* ---------- glossaire ---------- */
+  const people = DATA.people.slice().sort((a, b) => a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
+  const gState = { q: "", plat: "all", lang: "all", topic: "all" };
+  const G_GROUPS = [
+    { key: "plat", label: "Plateforme", options: [["all", "Toutes"], ["youtube", "YouTube"], ["github", "GitHub"]] },
+    { key: "lang", label: "Langue", options: [["all", "Toutes"], ["fr", "Français"], ["en", "Anglais"]] },
+    { key: "topic", label: "Thème", options: [["all", "Tous"]].concat(DATA.meta.topics.map((t) => [t, t])) }
+  ];
+
+  function haystack(p) {
+    const parts = [p.name, p.person || "", p.lang === "fr" ? "français" : "anglais"].concat(p.topics, p.repos || []);
+    for (const url of Object.values(p.links)) parts.push(handleOf(url));
+    return norm(parts.join(" "));
+  }
+  const gIndex = new Map(people.map((p) => [p.id, haystack(p)]));
+
+  function gMatches(p) {
+    if (gState.plat !== "all" && !p.links[gState.plat]) return false;
+    if (gState.lang !== "all" && p.lang !== gState.lang) return false;
+    if (gState.topic !== "all" && !p.topics.includes(gState.topic)) return false;
+    const q = norm(gState.q.trim());
+    return !q || q.split(/\s+/).every((word) => gIndex.get(p.id).includes(word));
+  }
+
+  function linkCell(kind, label, url) {
+    if (!url) return el("span", { class: "slot" });
+    const handle = handleOf(url);
+    return el("a", { class: "lnk " + (kind === "youtube" ? "yt" : "gh"), href: url, target: "_blank", rel: "noopener noreferrer", "aria-label": label + " : " + handle },
+      el("span", { class: "plat" }, label),
+      el("span", { class: "handle" }, handle + " ↗"));
+  }
+
+  function entryNode(p) {
+    const meta = el("p", { class: "meta" }, el("span", { class: "lang" }, p.lang));
+    if (p.person) meta.append(el("span", {}, p.person));
+    meta.append(el("span", {}, p.topics.join(" · ")));
+    for (const r of p.repos || []) {
+      meta.append(el("a", { class: "repo", href: "https://github.com/" + r, target: "_blank", rel: "noopener noreferrer" }, r));
+    }
+    if (p.skills && p.skills.length) meta.append(el("span", { class: "skills" }, p.skills.length + " skills"));
+    return el("li", { class: "entry" },
+      el("div", { class: "who" }, el("h3", { class: "name" }, p.name), meta),
+      el("div", { class: "links" }, linkCell("youtube", "YouTube", p.links.youtube), linkCell("github", "GitHub", p.links.github)));
+  }
+
+  function letterOf(name) {
+    const c = norm(name).charAt(0);
+    return /[a-z]/.test(c) ? c.toUpperCase() : "#";
+  }
+
+  const listEl = document.getElementById("list");
+  const countEl = document.getElementById("count");
+  const resetEl = document.getElementById("reset");
+  const filtersEl = document.getElementById("filters");
+
+  function renderGlossaire() {
+    const shown = people.filter(gMatches);
+    listEl.replaceChildren();
+    const byLetter = new Map();
+    for (const p of shown) {
+      const l = letterOf(p.name);
+      if (!byLetter.has(l)) byLetter.set(l, []);
+      byLetter.get(l).push(p);
+    }
+    const letters = [...byLetter.keys()].sort((a, b) => (a === "#" ? -1 : b === "#" ? 1 : a.localeCompare(b)));
+    for (const l of letters) {
+      const ul = el("ul", { class: "entries" });
+      for (const p of byLetter.get(l)) ul.append(entryNode(p));
+      listEl.append(el("section", { class: "letter-group", "aria-label": "Lettre " + l }, el("div", { class: "letter", "aria-hidden": "true" }, l), ul));
+    }
+    if (!shown.length) listEl.append(el("p", { class: "empty" }, "Aucune entrée ne correspond. Essayez un autre mot ou effacez les filtres."));
+    countEl.textContent = shown.length + (shown.length > 1 ? " entrées" : " entrée") + " sur " + people.length;
+    resetEl.hidden = !(gState.q || gState.plat !== "all" || gState.lang !== "all" || gState.topic !== "all");
+    syncChips(filtersEl, gState, G_GROUPS);
+  }
+
+  filterGroups(filtersEl, G_GROUPS, gState, renderGlossaire);
+  document.getElementById("q").addEventListener("input", (e) => { gState.q = e.target.value; renderGlossaire(); });
+  resetEl.addEventListener("click", () => {
+    Object.assign(gState, { q: "", plat: "all", lang: "all", topic: "all" });
+    document.getElementById("q").value = "";
+    renderGlossaire();
+  });
+
+  const nYt = people.filter((p) => p.links.youtube).length;
+  const nGh = people.filter((p) => p.links.github).length;
+  statsInto(document.getElementById("stats"), [["Entrées", people.length], ["YouTube", nYt], ["GitHub", nGh]]);
+  const when = new Date(DATA.meta.updated + "T00:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+  document.getElementById("verified").textContent = "Liens des personnes ouverts et vérifiés le " + when + ".";
+  renderGlossaire();
+
+  /* ---------- veille ---------- */
+  const KIND_LABEL = { youtube: "Vidéo", github: "GitHub", news: "News", papers: "Papier" };
+  const V_GROUPS = [
+    { key: "kind", label: "Type", options: [["all", "Tout"], ["youtube", "Vidéos"], ["github", "GitHub"], ["news", "News"], ["papers", "Papiers"]] },
+    { key: "stars", label: "Options", toggle: true, options: [["stars", "Étoiles GitHub"]] },
+    { key: "onlyNew", label: "", toggle: true, options: [["onlyNew", "Nouveaux seulement"]] }
+  ];
+  const vState = { kind: "all", q: "", stars: false, onlyNew: false, limit: 120 };
+  let feed = { items: [], sources: [] }, cands = [], lastVisit = null, isDemo = false;
+
+  const vListEl = document.getElementById("v-list");
+  const vFiltersEl = document.getElementById("v-filters");
+
+  function demoData() {
+    const H = 3600e3, n = Date.now();
+    const mk = (i, h, kind, name, label, title, summary) => ({
+      id: "demo" + i, source: "demo" + i, name, kind, label, title, url: "#", summary,
+      published: new Date(n - h * H).toISOString(), first_seen: new Date(n - h * H).toISOString()
+    });
+    return {
+      feed: {
+        generated: new Date(n - 2 * H).toISOString(),
+        items: [
+          mk(1, 2, "youtube", "Chaîne exemple", "", "Exemple : une nouvelle vidéo d'une chaîne suivie"),
+          mk(2, 5, "github", "Compte exemple", "Nouveau dépôt", "Exemple : un compte suivi crée un dépôt"),
+          mk(3, 7, "news", "Blog exemple", "", "Exemple : un billet d'actualité", "Exemple d'extrait affiché sous le titre pour les news et les articles de recherche."),
+          mk(4, 9, "papers", "Source de recherche exemple", "", "Exemple : un article de recherche", "Exemple d'extrait d'un résumé d'article."),
+          mk(5, 26, "github", "Dépôt exemple (releases)", "Release", "Exemple : v1.2.0"),
+          mk(6, 30, "youtube", "Chaîne exemple", "", "Exemple : une autre vidéo, la veille"),
+          mk(7, 33, "news", "Blog exemple", "", "Exemple : un second billet", "Un extrait court, limité à deux lignes dans la liste."),
+          mk(8, 40, "github", "Compte exemple", "Étoile", "Exemple : un compte suivi met une étoile à un projet"),
+          mk(9, 50, "news", "Blog exemple", "", "Exemple : un billet plus ancien"),
+          mk(10, 52, "papers", "Source de recherche exemple", "", "Exemple : un autre article de recherche")
+        ],
+        sources: [
+          { id: "d1", name: "Chaîne exemple", kind: "youtube", ok: true, items: 12, pending: false },
+          { id: "d2", name: "Blog exemple", kind: "news", ok: true, items: 22, pending: false },
+          { id: "d3", name: "Flux en panne exemple", kind: "news", ok: false, items: 0, pending: false, error: "Exemple d'erreur de téléchargement" },
+          { id: "d4", name: "Flux à confirmer exemple", kind: "news", ok: true, items: 8, pending: true }
+        ]
+      },
+      cands: [
+        { login: "createur-exemple", url: "#", repo: "createur-exemple/skills-exemple", repo_url: "#", stars: 120, description: "Exemple de dépôt repéré par la découverte automatique.", type: "User" },
+        { login: "autre-exemple", url: "#", repo: "autre-exemple/outil", repo_url: "#", stars: 48, description: "Un second exemple de candidat à ajouter au glossaire.", type: "User" }
+      ]
+    };
+  }
+
+  async function loadJSON(path) {
+    const r = await fetch(path, { cache: "no-store" });
+    if (!r.ok) throw new Error(String(r.status));
+    return r.json();
+  }
+
+  const isNew = (it) => !!lastVisit && Date.parse(it.first_seen || it.published) > Date.parse(lastVisit);
+  const vHay = new WeakMap();
+  function vHaystack(it) {
+    if (!vHay.has(it)) vHay.set(it, norm([it.title, it.name, it.label || "", it.author || "", it.summary || ""].join(" ")));
+    return vHay.get(it);
+  }
+  function vMatches(it) {
+    if (vState.kind !== "all" && it.kind !== vState.kind) return false;
+    if (!vState.stars && it.label === "Étoile") return false;
+    if (vState.onlyNew && !isNew(it)) return false;
+    const q = norm(vState.q.trim());
+    return !q || q.split(/\s+/).every((w) => vHaystack(it).includes(w));
+  }
+
+  const dayKey = (d) => d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
+  function dayLabel(d) {
+    const t = new Date(), y = new Date(t.getTime() - 864e5);
+    const base = d.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" });
+    if (dayKey(d) === dayKey(t)) return "Aujourd'hui · " + base;
+    if (dayKey(d) === dayKey(y)) return "Hier · " + base;
+    return base;
+  }
+  function ago(iso) {
+    const m = Math.max(0, Math.round((Date.now() - Date.parse(iso)) / 60000));
+    if (m < 60) return "il y a " + m + " min";
+    const h = Math.round(m / 60);
+    if (h < 48) return "il y a " + h + " h";
+    return "il y a " + Math.round(h / 24) + " jours";
+  }
+
+  function postNode(it) {
+    const href = safeHref(it.url);
+    const d = new Date(it.published);
+    const meta = el("p", { class: "pmeta" },
+      el("span", { class: "pkind k-" + it.kind }, KIND_LABEL[it.kind] || it.kind),
+      el("span", {}, it.name));
+    if (it.label) meta.append(el("span", {}, it.label));
+    if (it.author && it.author !== it.name) meta.append(el("span", {}, it.author));
+    if (isNew(it)) meta.append(el("span", { class: "newpill" }, "Nouveau"));
+    const title = href
+      ? el("a", { class: "ptitle", href, target: "_blank", rel: "noopener noreferrer" }, it.title)
+      : el("span", { class: "ptitle" }, it.title);
+    const what = el("div", { class: "what" }, title, meta);
+    if (it.summary) what.append(el("p", { class: "psum" }, it.summary));
+    return el("li", { class: "post" },
+      el("time", { class: "when", datetime: it.published }, d.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })),
+      what);
+  }
+
+  function candNode(c) {
+    const copy = el("button", { class: "copy", type: "button" }, "Copier l'entrée");
+    copy.addEventListener("click", () => {
+      const stub = JSON.stringify({
+        id: c.login.toLowerCase(), name: c.login, lang: "en", topics: ["Agents & skills"],
+        links: { github: c.url }, repos: [c.repo], skills: []
+      }, null, 2);
+      const done = (t) => { copy.textContent = t; setTimeout(() => { copy.textContent = "Copier l'entrée"; }, 1800); };
+      try {
+        navigator.clipboard.writeText(stub).then(() => done("Copié"), () => done("Copie refusée"));
+      } catch (e) { done("Copie refusée"); }
+    });
+    const login = safeHref(c.url) ? el("a", { class: "cand-login", href: c.url, target: "_blank", rel: "noopener noreferrer" }, c.login) : el("span", { class: "cand-login" }, c.login);
+    const repo = safeHref(c.repo_url) ? el("a", { href: c.repo_url, target: "_blank", rel: "noopener noreferrer" }, c.repo) : c.repo;
+    const li = el("li", { class: "cand" },
+      el("div", { class: "cand-head" }, login, el("span", { class: "cand-stars", "aria-label": c.stars + " étoiles" }, "★ " + c.stars)),
+      el("div", { class: "cand-repo" }, repo));
+    if (c.description) li.append(el("p", { class: "cand-desc" }, c.description));
+    li.append(copy);
+    return li;
+  }
+
+  function sourceNode(s) {
+    const state = !s.ok ? "err" : s.pending ? "pending" : "ok";
+    const li = el("li", { class: "src" },
+      el("span", { class: "dot " + state, "aria-hidden": "true" }),
+      el("span", { class: "src-name" }, s.name),
+      el("span", { class: "src-n" }, s.ok ? String(s.items) : "–"));
+    if (state === "err") li.append(el("span", { class: "src-state err" }, "Erreur : " + (s.error || "inconnue")));
+    else if (state === "pending") li.append(el("span", { class: "src-state pending" }, "À confirmer : flux jamais ouvert à la main"));
+    return li;
+  }
+
+  function renderVeille() {
+    const shown = feed.items.filter(vMatches).sort((a, b) => (a.published < b.published ? 1 : -1));
+    vListEl.replaceChildren();
+    const page = shown.slice(0, vState.limit);
+    let group = null, ul = null, lastKey = "";
+    for (const it of page) {
+      const d = new Date(it.published);
+      const k = dayKey(d);
+      if (k !== lastKey) {
+        ul = el("ul", { class: "posts" });
+        group = el("section", { class: "day-group" }, el("h2", { class: "day" }, dayLabel(d)), ul);
+        vListEl.append(group);
+        lastKey = k;
+      }
+      ul.append(postNode(it));
+    }
+    if (!shown.length) {
+      vListEl.append(el("p", { class: "empty" }, feed.items.length
+        ? "Aucun élément ne correspond. Essayez un autre mot ou changez les filtres."
+        : "Le premier relevé n'a pas encore produit d'éléments. L'état des sources, à droite, indique ce qui a répondu."));
+    }
+    document.getElementById("v-more").hidden = shown.length <= vState.limit;
+    document.getElementById("v-count").textContent = shown.length + (shown.length > 1 ? " éléments" : " élément") + " sur " + feed.items.length;
+
+    const fresh = document.getElementById("v-fresh");
+    fresh.className = "";
+    if (feed.generated) {
+      const age = Date.now() - Date.parse(feed.generated);
+      fresh.textContent = "Dernier relevé " + ago(feed.generated) + (age > 864e5 ? " : plus de 24 h, vérifier le workflow" : "");
+      if (age > 864e5 && !isDemo) fresh.className = "stale";
+    }
+
+    const newCount = feed.items.filter(isNew).length;
+    const tabNew = document.getElementById("tab-new");
+    tabNew.hidden = !newCount;
+    tabNew.textContent = String(newCount);
+    syncChips(vFiltersEl, vState, V_GROUPS);
+  }
+
+  function renderVeilleStatic() {
+    const okCount = feed.sources.filter((s) => s.ok).length;
+    const rows = [["Éléments", feed.items.length], ["Sources OK", okCount + "/" + feed.sources.length]];
+    if (lastVisit) rows.push(["Nouveaux", feed.items.filter(isNew).length]);
+    statsInto(document.getElementById("v-stats"), rows);
+
+    const ul = document.getElementById("v-cands");
+    ul.replaceChildren(...cands.map(candNode));
+    document.getElementById("v-cands-n").textContent = String(cands.length);
+    if (!cands.length) ul.append(el("li", { class: "cand" }, el("p", { class: "cand-desc" }, "Aucun candidat pour l'instant. La découverte cherche les nouveaux dépôts des sujets claude-skills, agent-skills et claude-code.")));
+
+    const su = document.getElementById("v-sources");
+    const sorted = feed.sources.slice().sort((a, b) => Number(a.ok) - Number(b.ok) || a.name.localeCompare(b.name, "fr"));
+    su.replaceChildren(...sorted.map(sourceNode));
+    const bad = feed.sources.filter((s) => !s.ok || s.pending).length;
+    document.getElementById("v-sources-n").textContent = okCount + "/" + feed.sources.length + " OK";
+    document.getElementById("v-sources-panel").open = bad > 0;
+
+    const banner = document.getElementById("v-banner");
+    if (isDemo) {
+      banner.hidden = false;
+      banner.textContent = "Données d'exemple. Les vrais relevés apparaissent après la première exécution du workflow (voir le fichier README du dépôt).";
+    } else banner.hidden = true;
+  }
+
+  async function initVeille() {
+    lastVisit = storeGet("veille:lastVisit");
+    try {
+      feed = await loadJSON("data/feed.json");
+      feed.items = feed.items || [];
+      feed.sources = feed.sources || [];
+    } catch (e) {
+      const demo = demoData();
+      feed = demo.feed;
+      isDemo = true;
+    }
+    try {
+      cands = (await loadJSON("data/candidates.json")).candidates || [];
+    } catch (e) {
+      cands = isDemo ? demoData().cands : [];
+    }
+    renderVeilleStatic();
+    renderVeille();
+    const save = () => storeSet("veille:lastVisit", new Date().toISOString());
+    addEventListener("pagehide", save);
+    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") save(); });
+  }
+
+  filterGroups(vFiltersEl, V_GROUPS, vState, () => { vState.limit = 120; renderVeille(); });
+  document.getElementById("vq").addEventListener("input", (e) => { vState.q = e.target.value; vState.limit = 120; renderVeille(); });
+  document.getElementById("v-more").addEventListener("click", () => { vState.limit += 120; renderVeille(); });
+
+  showView(location.hash === "#veille" ? "veille" : "glossaire");
+  initVeille();
+</script>

@@ -1,0 +1,29 @@
+{
+  "settings": {
+    "retention_days": 30,
+    "max_items": 2000,
+    "max_keep_default": 60,
+    "pause_seconds": 0.3,
+    "discovery": {
+      "topics": ["claude-skills", "agent-skills", "claude-code"],
+      "created_within_days": 90,
+      "min_stars": 20,
+      "max_candidates": 60
+    }
+  },
+  "news": [
+    { "id": "arxiv-cs-ai", "name": "arXiv cs.AI", "kind": "papers", "lang": "en", "url": "https://rss.arxiv.org/rss/cs.AI", "max_keep": 40, "verified": "2026-10-13" },
+    { "id": "hf-blog", "name": "Hugging Face", "kind": "news", "lang": "en", "url": "https://huggingface.co/blog/feed.xml", "verified": "2026-10-13" },
+    { "id": "simon-willison-blog", "name": "Simon Willison", "kind": "news", "lang": "en", "url": "https://simonwillison.net/atom/everything/", "verified": "2026-10-13" },
+    { "id": "github-blog", "name": "GitHub Blog", "kind": "news", "lang": "en", "url": "https://github.blog/feed/", "verified": "2026-10-13" },
+    { "id": "openai-news", "name": "OpenAI", "kind": "news", "lang": "en", "url": "https://openai.com/news/rss.xml", "verified": "2026-10-13" },
+    { "id": "deepmind-blog", "name": "Google DeepMind", "kind": "news", "lang": "en", "url": "https://deepmind.google/blog/rss.xml", "verified": "2026-10-13" },
+    { "id": "korben", "name": "Korben", "kind": "news", "lang": "fr", "url": "https://korben.info/feed", "verified": "2026-10-13" },
+    { "id": "bleepingcomputer", "name": "BleepingComputer", "kind": "news", "lang": "en", "url": "https://www.bleepingcomputer.com/feed/", "verified": "2026-10-13" },
+    { "id": "hacker-news", "name": "Hacker News", "kind": "news", "lang": "en", "url": "https://news.ycombinator.com/rss", "max_keep": 40, "verified": null },
+    { "id": "the-register", "name": "The Register", "kind": "news", "lang": "en", "url": "https://www.theregister.com/headlines.atom", "verified": null }
+  ],
+  "github_releases": [
+    { "repo": "anthropics/claude-code", "name": "Claude Code (releases)", "verified": null }
+  ]
+}
