@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-27T00:25:54Z",
+ "generated": "2026-10-27T08:59:49Z",
  "errors": [],
  "candidates": [
   {
@@ -8,7 +8,7 @@
    "type": "User",
    "repo": "Gathin23/cleanyourtv",
    "repo_url": "https://github.com/Gathin23/cleanyourtv",
-   "stars": 39228,
+   "stars": 40226,
    "description": "Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.",
    "topic": "claude-code",
    "first_seen": "2026-10-19T04:41:01Z"
@@ -19,7 +19,7 @@
    "type": "User",
    "repo": "yetone/magpie",
    "repo_url": "https://github.com/yetone/magpie",
-   "stars": 22573,
+   "stars": 23141,
    "description": "Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.",
    "topic": "claude-code",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -30,7 +30,7 @@
    "type": "Organization",
    "repo": "genspark-ai/genoffice",
    "repo_url": "https://github.com/genspark-ai/genoffice",
-   "stars": 10956,
+   "stars": 11021,
    "description": "Free, open-source AI Office suite: Docs, Sheets, Slides, PDF, Markdown and HTML editors with a built-in AI agent, plus a `genoffice` CLI and agent skill so…",
    "topic": "claude-code",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -41,7 +41,7 @@
    "type": "User",
    "repo": "rehan-remade/universal-modder",
    "repo_url": "https://github.com/rehan-remade/universal-modder",
-   "stars": 9019,
+   "stars": 9037,
    "description": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated…",
    "topic": "claude-code",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -52,7 +52,7 @@
    "type": "User",
    "repo": "lemomo-ai/lemo-opuscar",
    "repo_url": "https://github.com/lemomo-ai/lemo-opuscar",
-   "stars": 8065,
+   "stars": 8341,
    "description": "A toolbox of film styles made in code for Claude Code: 59 ready to use, and your own. Each style is a style prompt plus a demo film made entirely in code by…",
    "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -63,7 +63,7 @@
    "type": "Organization",
    "repo": "Ryze-AI-Adgent/open-seo-mcp-skills",
    "repo_url": "https://github.com/Ryze-AI-Adgent/open-seo-mcp-skills",
-   "stars": 7467,
+   "stars": 7514,
    "description": "Free SEO MCP server + open-source SEO and GEO skills for Claude: keyword research, rank tracking, audits, backlinks, AI visibility on your real GSC/GA4/ads…",
    "topic": "claude-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -74,7 +74,7 @@
    "type": "User",
    "repo": "miqdadbadjuber/anti-slop",
    "repo_url": "https://github.com/miqdadbadjuber/anti-slop",
-   "stars": 7247,
+   "stars": 7276,
    "description": "Rules for an AI coding agent to filter out generic AI-generated UI designs, text, and code.",
    "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -85,7 +85,7 @@
    "type": "User",
    "repo": "Louis-CFM/coucou",
    "repo_url": "https://github.com/Louis-CFM/coucou",
-   "stars": 6568,
+   "stars": 6588,
    "description": "A tiny friend in your Mac's notch and on your iPhone that keeps an eye on your AI coding agents: Claude Code, Codex, Cursor, Gemini CLI, Antigravity and more.…",
    "topic": "claude-code",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -96,7 +96,7 @@
    "type": "User",
    "repo": "ccch1mneyyy/dsh-TUI",
    "repo_url": "https://github.com/ccch1mneyyy/dsh-TUI",
-   "stars": 5907,
+   "stars": 5959,
    "description": "DSH's officially top-recommended TUI plugin — high performance, low overhead, cute pixel whale, smooth mouse interaction. One-command install via npm. / DSH…",
    "topic": "claude-code",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -107,20 +107,9 @@
    "type": "User",
    "repo": "Jakeschincariol/replica-skill",
    "repo_url": "https://github.com/Jakeschincariol/replica-skill",
-   "stars": 5792,
+   "stars": 5890,
    "description": "Eleven free Claude skills that clone any app: reverse-engineer it, rebuild it, test it for bugs, then fix what its users hate. Free, MIT.",
    "topic": "claude-skills",
-   "first_seen": "2026-10-14T08:10:08Z"
-  },
-  {
-   "login": "dmmulroy",
-   "url": "https://github.com/dmmulroy",
-   "type": "User",
-   "repo": "dmmulroy/anti-slop",
-   "repo_url": "https://github.com/dmmulroy/anti-slop",
-   "stars": 5707,
-   "description": "Opinionated Oxlint rules for rejecting low-evidence TypeScript and JavaScript patterns",
-   "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
   },
   {
@@ -129,9 +118,20 @@
    "type": "User",
    "repo": "milind-soni/OpenMausBot",
    "repo_url": "https://github.com/milind-soni/OpenMausBot",
-   "stars": 5681,
+   "stars": 5719,
    "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
    "topic": "claude-code",
+   "first_seen": "2026-10-14T08:10:08Z"
+  },
+  {
+   "login": "dmmulroy",
+   "url": "https://github.com/dmmulroy",
+   "type": "User",
+   "repo": "dmmulroy/anti-slop",
+   "repo_url": "https://github.com/dmmulroy/anti-slop",
+   "stars": 5708,
+   "description": "Opinionated Oxlint rules for rejecting low-evidence TypeScript and JavaScript patterns",
+   "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
   },
   {
@@ -140,21 +140,10 @@
    "type": "User",
    "repo": "simbasjungles/free-my-tv",
    "repo_url": "https://github.com/simbasjungles/free-my-tv",
-   "stars": 4861,
+   "stars": 4900,
    "description": "A fast, ad-free home screen for Google TV, LG webOS and Samsung Tizen. One button to undo.",
    "topic": "claude-code",
    "first_seen": "2026-10-21T17:12:38Z"
-  },
-  {
-   "login": "tigerless-labs",
-   "url": "https://github.com/tigerless-labs",
-   "type": "Organization",
-   "repo": "tigerless-labs/agent-memory",
-   "repo_url": "https://github.com/tigerless-labs/agent-memory",
-   "stars": 4734,
-   "description": "Long-term memory runtime for AI agents — plain Markdown as the source of truth, local ranked retrieval, and an independent sleep-time Manage layer. Claude…",
-   "topic": "claude-code",
-   "first_seen": "2026-10-14T08:10:08Z"
   },
   {
    "login": "kaankiziltug",
@@ -162,9 +151,20 @@
    "type": "User",
    "repo": "kaankiziltug/logo-design-skill",
    "repo_url": "https://github.com/kaankiziltug/logo-design-skill",
-   "stars": 4730,
+   "stars": 4764,
    "description": "A comprehensive logo-design skill for Claude, Gemini CLI, Codex and other AI agents: principles, process, SVG craft, testing tools and a 1,400+ logo reference…",
    "topic": "claude-skills",
+   "first_seen": "2026-10-14T08:10:08Z"
+  },
+  {
+   "login": "tigerless-labs",
+   "url": "https://github.com/tigerless-labs",
+   "type": "Organization",
+   "repo": "tigerless-labs/agent-memory",
+   "repo_url": "https://github.com/tigerless-labs/agent-memory",
+   "stars": 4736,
+   "description": "Long-term memory runtime for AI agents — plain Markdown as the source of truth, local ranked retrieval, and an independent sleep-time Manage layer. Claude…",
+   "topic": "claude-code",
    "first_seen": "2026-10-14T08:10:08Z"
   },
   {
@@ -173,7 +173,7 @@
    "type": "User",
    "repo": "QingYunA/answer-me-with-html",
    "repo_url": "https://github.com/QingYunA/answer-me-with-html",
-   "stars": 4496,
+   "stars": 4522,
    "description": "Answer me with HTML — an agent skill that answers hard questions with a one-page HTML you can actually read. 让 AI Agent 用一页 HTML 回答复杂问题。",
    "topic": "claude-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -184,7 +184,7 @@
    "type": "User",
    "repo": "Oldcircle/geo-sleuth",
    "repo_url": "https://github.com/Oldcircle/geo-sleuth",
-   "stars": 4259,
+   "stars": 4307,
    "description": "An agent skill that finds where a photo was taken — OpenStreetMap geometry, elevation skylines, satellite imagery and street view — and shows its work. Works…",
    "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -195,7 +195,7 @@
    "type": "User",
    "repo": "KKKKhazix/human-writing",
    "repo_url": "https://github.com/KKKKhazix/human-writing",
-   "stars": 4232,
+   "stars": 4239,
    "description": "让 AI 写的中文读起来像一个具体的人在说话。通用创作与改稿 Skill，开箱即用。",
    "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -217,7 +217,7 @@
    "type": "User",
    "repo": "nateherkai/scroll-craft",
    "repo_url": "https://github.com/nateherkai/scroll-craft",
-   "stars": 4077,
+   "stars": 4098,
    "description": "An agent skill for building premium, immersive, scroll-driven websites. Works with Codex, Claude Code, and other coding agents. Also available as a Claude…",
    "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -228,7 +228,7 @@
    "type": "Organization",
    "repo": "Folkbench/folkbench",
    "repo_url": "https://github.com/Folkbench/folkbench",
-   "stars": 3740,
+   "stars": 3760,
    "description": "AI API 中转站评测排行与切换工具：实测可用率、延迟与价格 · Open-source AI API relay benchmark, rankings & switcher for Claude Code / Codex",
    "topic": "claude-code",
    "first_seen": "2026-10-22T04:45:16Z"
@@ -239,19 +239,8 @@
    "type": "User",
    "repo": "Nanako0129/sepia",
    "repo_url": "https://github.com/Nanako0129/sepia",
-   "stars": 3499,
+   "stars": 3505,
    "description": "De-AI writing skill for any Agent Skills-compatible agent (77+ via the Skills CLI), with native plugins for Claude Code, Codex, Grok Build, and Antigravity.…",
-   "topic": "agent-skills",
-   "first_seen": "2026-10-14T08:10:08Z"
-  },
-  {
-   "login": "lennney",
-   "url": "https://github.com/lennney",
-   "type": "User",
-   "repo": "lennney/stop-that-shit",
-   "repo_url": "https://github.com/lennney/stop-that-shit",
-   "stars": 3196,
-   "description": "Stop That Shit（别再造史了）｜面向 Codex/GPT 场景的多平台 Hook + Skill Guard：拦截 AI coding agent 无需求的哈希、校验和与任务范围膨胀。 A multi-platform Hook + Skill Guard for AI coding agents in…",
    "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
   },
@@ -261,9 +250,20 @@
    "type": "Organization",
    "repo": "Appllama/appllama-skills",
    "repo_url": "https://github.com/Appllama/appllama-skills",
-   "stars": 3181,
+   "stars": 3311,
    "description": "A builder, not just a researcher. Agent skills that turn top-grossing app patterns into native-quality mobile screens.",
    "topic": "claude-skills",
+   "first_seen": "2026-10-14T08:10:08Z"
+  },
+  {
+   "login": "lennney",
+   "url": "https://github.com/lennney",
+   "type": "User",
+   "repo": "lennney/stop-that-shit",
+   "repo_url": "https://github.com/lennney/stop-that-shit",
+   "stars": 3221,
+   "description": "Stop That Shit（别再造史了）｜面向 Codex/GPT 场景的多平台 Hook + Skill Guard：拦截 AI coding agent 无需求的哈希、校验和与任务范围膨胀。 A multi-platform Hook + Skill Guard for AI coding agents in…",
+   "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
   },
   {
@@ -272,10 +272,21 @@
    "type": "User",
    "repo": "kaomei/stickman-video-director",
    "repo_url": "https://github.com/kaomei/stickman-video-director",
-   "stars": 3118,
+   "stars": 3146,
    "description": "Open-source AI stickman video generator for faceless YouTube channels. Automate visuals, voiceover, captions, and sound effects—or direct each scene with…",
    "topic": "agent-skills",
    "first_seen": "2026-10-15T17:01:08Z"
+  },
+  {
+   "login": "openfilm",
+   "url": "https://github.com/openfilm",
+   "type": "Organization",
+   "repo": "openfilm/openfilm",
+   "repo_url": "https://github.com/openfilm/openfilm",
+   "stars": 3095,
+   "description": "The open source AI video agent: turns any coding agent into a video agent, with an editor to change anything it makes.",
+   "topic": "claude-code",
+   "first_seen": "2026-10-24T15:57:18Z"
   },
   {
    "login": "kajisho5",
@@ -283,7 +294,7 @@
    "type": "User",
    "repo": "kajisho5/ffmpeg-skill",
    "repo_url": "https://github.com/kajisho5/ffmpeg-skill",
-   "stars": 3047,
+   "stars": 3084,
    "description": "Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions,…",
    "topic": "agent-skills",
    "first_seen": "2026-10-15T17:01:08Z"
@@ -294,21 +305,10 @@
    "type": "User",
    "repo": "ardeyouxipianyi/workbuddy2api-hub",
    "repo_url": "https://github.com/ardeyouxipianyi/workbuddy2api-hub",
-   "stars": 3021,
+   "stars": 3061,
    "description": "WorkBuddy 国际国内多账号反代网关，支持 Codex / Claude Code / DSH与标准 OpenAI 客户端。",
    "topic": "claude-code",
    "first_seen": "2026-10-20T23:53:05Z"
-  },
-  {
-   "login": "openfilm",
-   "url": "https://github.com/openfilm",
-   "type": "Organization",
-   "repo": "openfilm/openfilm",
-   "repo_url": "https://github.com/openfilm/openfilm",
-   "stars": 3021,
-   "description": "The open source AI video agent: turns any coding agent into a video agent, with an editor to change anything it makes.",
-   "topic": "claude-code",
-   "first_seen": "2026-10-24T15:57:18Z"
   },
   {
    "login": "dzhng",
@@ -327,7 +327,7 @@
    "type": "User",
    "repo": "Vincentwei1021/anything2explainer",
    "repo_url": "https://github.com/Vincentwei1021/anything2explainer",
-   "stars": 2767,
+   "stars": 2776,
    "description": "Topic in, narrated explainer video out. A Claude Code / Codex skill that turns any topic into a black-canvas motion-graphics explainer video with TTS…",
    "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -338,7 +338,7 @@
    "type": "User",
    "repo": "chengyi-ai/native-subtitle-quote-image",
    "repo_url": "https://github.com/chengyi-ai/native-subtitle-quote-image",
-   "stars": 2745,
+   "stars": 2746,
    "description": "保留视频内嵌字幕，精确取帧并生成 3:4 社交长图的 Agent Skill",
    "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -349,7 +349,7 @@
    "type": "User",
    "repo": "oil-oil/oil-motion",
    "repo_url": "https://github.com/oil-oil/oil-motion",
-   "stars": 2692,
+   "stars": 2696,
    "description": "Web animation skill for Claude Code & Codex. 帮你做跟着滚动和鼠标动的网页动画。",
    "topic": "claude-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -360,7 +360,7 @@
    "type": "Organization",
    "repo": "nano-muse/nanoMuse",
    "repo_url": "https://github.com/nano-muse/nanoMuse",
-   "stars": 2643,
+   "stars": 2683,
    "description": "nanoMuse: an open-source personal agent for every device you own. One agent with a name and a look of its own that does things, keeps working while the app is…",
    "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -371,7 +371,7 @@
    "type": "User",
    "repo": "duty1g/x64dbg-mcp-server",
    "repo_url": "https://github.com/duty1g/x64dbg-mcp-server",
-   "stars": 2611,
+   "stars": 2614,
    "description": "x64dbg-MCP Server is a native MCP (Model Context Protocol) plugin for x64dbg that exposes the debugger's full functionality over HTTP. Connect any…",
    "topic": "claude-code",
    "first_seen": "2026-10-17T04:26:06Z"
@@ -382,7 +382,7 @@
    "type": "User",
    "repo": "nanaism/yomiyasu",
    "repo_url": "https://github.com/nanaism/yomiyasu",
-   "stars": 2577,
+   "stars": 2589,
    "description": "AI生成の日本語を自然な日本語へ推敲するAgent Skill / Agent Skill for Refining AI-Generated Japanese into Natural Japanese",
    "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -393,7 +393,7 @@
    "type": "Organization",
    "repo": "coldteadotai/pr-lens",
    "repo_url": "https://github.com/coldteadotai/pr-lens",
-   "stars": 2255,
+   "stars": 2257,
    "description": "Review code 100X faster. Lens draws every PR as animated architecture and data-flow walkthroughs, inside the pull request itself. Use it as a GitHub App,…",
    "topic": "claude-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -404,7 +404,7 @@
    "type": "Organization",
    "repo": "amontlabs/lcu",
    "repo_url": "https://github.com/amontlabs/lcu",
-   "stars": 2236,
+   "stars": 2244,
    "description": "Codex computer use, decoupled from the app, for usage inside any harness.",
    "topic": "agent-skills",
    "first_seen": "2026-10-19T13:15:33Z"
@@ -415,19 +415,8 @@
    "type": "User",
    "repo": "cbrock84/headcount",
    "repo_url": "https://github.com/cbrock84/headcount",
-   "stars": 2088,
+   "stars": 2090,
    "description": "An agent organization structured as a company — 15+ departments, 125+ skills, each independently installable, citing the standards and regulators that settle…",
-   "topic": "claude-skills",
-   "first_seen": "2026-10-14T08:10:08Z"
-  },
-  {
-   "login": "zhuyansen",
-   "url": "https://github.com/zhuyansen",
-   "type": "User",
-   "repo": "zhuyansen/new-term-radar",
-   "repo_url": "https://github.com/zhuyansen/new-term-radar",
-   "stars": 1819,
-   "description": "Daily radar for new AI terms: names of new models, products and repos, caught on X, Hugging Face, GitHub and sitemaps before keyword tools list them.",
    "topic": "claude-skills",
    "first_seen": "2026-10-14T08:10:08Z"
   },
@@ -437,10 +426,21 @@
    "type": "Organization",
    "repo": "google/elephant-goldfish-model",
    "repo_url": "https://github.com/google/elephant-goldfish-model",
-   "stars": 1771,
+   "stars": 2011,
    "description": "An open-source method and skill set created at Google for spec-driven development with LLMs",
    "topic": "claude-skills",
    "first_seen": "2026-10-25T16:19:25Z"
+  },
+  {
+   "login": "zhuyansen",
+   "url": "https://github.com/zhuyansen",
+   "type": "User",
+   "repo": "zhuyansen/new-term-radar",
+   "repo_url": "https://github.com/zhuyansen/new-term-radar",
+   "stars": 1840,
+   "description": "Daily radar for new AI terms: names of new models, products and repos, caught on X, Hugging Face, GitHub and sitemaps before keyword tools list them.",
+   "topic": "claude-skills",
+   "first_seen": "2026-10-14T08:10:08Z"
   },
   {
    "login": "alchaincyf",
@@ -448,7 +448,7 @@
    "type": "User",
    "repo": "alchaincyf/huashu-motion",
    "repo_url": "https://github.com/alchaincyf/huashu-motion",
-   "stars": 1734,
+   "stars": 1769,
    "description": "让你的agent一键直出商业级产品宣传片：会作曲，能指着画面改。Commercial-grade launch films by your coding agent — point at the frame to change it.",
    "topic": "agent-skills",
    "first_seen": "2026-10-21T11:49:20Z"
@@ -459,7 +459,7 @@
    "type": "User",
    "repo": "maxrave-dev/kotlin-footguns",
    "repo_url": "https://github.com/maxrave-dev/kotlin-footguns",
-   "stars": 1671,
+   "stars": 1679,
    "description": "Battle-tested agent skills mapping the footguns of Kotlin, Compose Multiplatform and the desktop JVM — mined from a production music app, not from…",
    "topic": "agent-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -481,7 +481,7 @@
    "type": "User",
    "repo": "alexgreensh/attention-span",
    "repo_url": "https://github.com/alexgreensh/attention-span",
-   "stars": 1502,
+   "stars": 1503,
    "description": "Make your agents talk human. ADHD-friendly output styles for Claude Code, Codex, and others. So you can pay attention, not tokens.",
    "topic": "claude-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -503,7 +503,7 @@
    "type": "User",
    "repo": "morluto/awesome-reverse-engineering",
    "repo_url": "https://github.com/morluto/awesome-reverse-engineering",
-   "stars": 1283,
+   "stars": 1298,
    "description": "Curated reverse-engineering tools and learning resources for binaries, apps, firmware, formats, and protocols.",
    "topic": "agent-skills",
    "first_seen": "2026-10-27T00:25:54Z"
@@ -514,7 +514,7 @@
    "type": "User",
    "repo": "morganlinton/BeautifulRust",
    "repo_url": "https://github.com/morganlinton/BeautifulRust",
-   "stars": 1212,
+   "stars": 1252,
    "description": "Agent Skills that teach coding agents to write, review, and port idiomatic Rust, plus a tested clippy config. Works with Claude Code, Codex, Copilot, Cursor,…",
    "topic": "claude-skills",
    "first_seen": "2026-10-25T23:16:31Z"
@@ -536,7 +536,7 @@
    "type": "Organization",
    "repo": "scenario-labs/skills",
    "repo_url": "https://github.com/scenario-labs/skills",
-   "stars": 1153,
+   "stars": 1162,
    "description": "Get production-ready images, video, audio, and 3D from any AI agent: skills that pick the right model, price before spending, and keep characters and brands…",
    "topic": "claude-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -553,12 +553,23 @@
    "first_seen": "2026-10-14T08:10:08Z"
   },
   {
+   "login": "DUNHKpcc",
+   "url": "https://github.com/DUNHKpcc",
+   "type": "User",
+   "repo": "DUNHKpcc/Claude-Guardian",
+   "repo_url": "https://github.com/DUNHKpcc/Claude-Guardian",
+   "stars": 1096,
+   "description": "Claude Guardian is an all-in-one Claude account safety and risk prevention skill.Claude防封实战 It intelligently assesses your device, account history, network…",
+   "topic": "claude-skills",
+   "first_seen": "2026-10-27T08:59:49Z"
+  },
+  {
    "login": "UnderleveledBuilder",
    "url": "https://github.com/UnderleveledBuilder",
    "type": "User",
    "repo": "UnderleveledBuilder/awesome-short-drama-skills",
    "repo_url": "https://github.com/UnderleveledBuilder/awesome-short-drama-skills",
-   "stars": 1027,
+   "stars": 1058,
    "description": "AI 短剧 · 漫剧 Skill（技能包）精选：剧本、改编、分镜、Seedance / 可灵 / MiniMax 视频提示词，千问、豆包、龙虾 OpenClaw、WorkBuddy、Claude Code、Codex 等智能体可用 | Curated agent skills for AI short drama,…",
    "topic": "claude-skills",
    "first_seen": "2026-10-20T14:18:54Z"
@@ -569,7 +580,7 @@
    "type": "User",
    "repo": "leopard627/fire-your-seo-agency",
    "repo_url": "https://github.com/leopard627/fire-your-seo-agency",
-   "stars": 974,
+   "stars": 975,
    "description": "Fire your SEO·GEO agency 🔥 A Claude Code skill that audits and optimizes SEO·AEO·GEO·LLMO·NEO(Naver) by itself — 월 50~350만 원짜리 'AI 검색 최적화' 대행, AI 에이전트가 대체합니다",
    "topic": "claude-skills",
    "first_seen": "2026-10-14T08:10:08Z"
@@ -580,7 +591,7 @@
    "type": "User",
    "repo": "juliobsz/skills",
    "repo_url": "https://github.com/juliobsz/skills",
-   "stars": 967,
+   "stars": 973,
    "description": "An agent skill that builds award-caliber websites from one line",
    "topic": "claude-skills",
    "first_seen": "2026-10-19T20:35:39Z"
@@ -591,7 +602,7 @@
    "type": "User",
    "repo": "DozenTwelve/Papermorph",
    "repo_url": "https://github.com/DozenTwelve/Papermorph",
-   "stars": 958,
+   "stars": 965,
    "description": "An AI skill that turns books into animated, narrated, interactive web experiences",
    "topic": "claude-skills",
    "first_seen": "2026-10-23T17:07:19Z"
@@ -602,19 +613,8 @@
    "type": "Organization",
    "repo": "openqodex/openqodex",
    "repo_url": "https://github.com/openqodex/openqodex",
-   "stars": 820,
+   "stars": 822,
    "description": "Open source AI code review for coding agents. A separate reviewer checks every change your agent writes before you push, in Claude Code, Codex, Cursor and…",
-   "topic": "claude-skills",
-   "first_seen": "2026-10-14T08:10:08Z"
-  },
-  {
-   "login": "Aryanutkarsh",
-   "url": "https://github.com/Aryanutkarsh",
-   "type": "User",
-   "repo": "Aryanutkarsh/SeeCode",
-   "repo_url": "https://github.com/Aryanutkarsh/SeeCode",
-   "stars": 728,
-   "description": "Animated, explorable diagrams for Claude and other coding agents, from a short JSON spec.",
    "topic": "claude-skills",
    "first_seen": "2026-10-14T08:10:08Z"
   }
